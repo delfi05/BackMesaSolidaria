@@ -1,0 +1,9 @@
+server:
+  port: 0
+spring:
+  application:
+    name: microservice-project
+  config:
+    import: optional:configserver:http://localhost:8081
+upload:
+  directory: ./images/projects

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: microservice-api-gateway
+  config:
+    import: optional:configserver:http://localhost:8081
+jwt:
+  secret: j7ZookpUTYxclaULynjypGQVKMYXqOXMI+/1sQ2gOV1BF6VOHw6OzYj9RNZY4GcHAE3Igrah3MZ26oLrY/3y4Q==
+URL_CROSS_ORIGIN: "http://localhost:5173"
+URL_CROSS_ORIGIN_VERCEL: "https://mesa-solidaria.vercel.app"
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

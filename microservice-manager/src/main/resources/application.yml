@@ -1,0 +1,10 @@
+server:
+  port: 0
+spring:
+  application:
+    name: microservice-manager
+  config:
+    import: optional:configserver:http://localhost:8081
+    # VERIFICAR POR QUE NO ANDA ACA
+jwt:
+  secret: j7ZookpUTYxclaULynjypGQVKMYXqOXMI+/1sQ2gOV1BF6VOHw6OzYj9RNZY4GcHAE3Igrah3MZ26oLrY/3y4Q==

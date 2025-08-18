@@ -1,0 +1,38 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+spring:
+  mail:
+    host: smtp.gmail.com
+    #
+    #
+    # CAMBIAR ESTO PARA FEDERACION.MESASOLIDARIATANDIL@GMAIL.COM
+    # RECORDAR APAGAR EL FIREWALL Y EL ANTIVIRUS
+    #
+    username: lorenzofdzdev@gmail.com
+    password: ghwu tgjb wrra iybn
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  application:
+    name: microservice-voluntary
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://host.docker.internal:3306/microservice_voluntary?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://host.docker.internal:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

@@ -1,0 +1,854 @@
+{
+	"info": {
+		"_postman_id": "7a61706b-22cf-4733-ada1-e60f869fef60",
+		"name": "Mesa Solidaria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38880631"
+	},
+	"item": [
+		{
+			"name": "Microservicio Managers",
+			"item": [
+				{
+					"name": "Peticiones Noticias",
+					"item": [
+						{
+							"name": "Obtener Noticias",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getAllNews",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getAllNews"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Noticia Por Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getNewsById/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getNewsById",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guardar Noticia",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Habia una ve\",\r\n  \"description\": \"Un nuevo descubrimiento promete revolucionar la producción de energía solar.\",\r\n  \"image\": \"https://example.com/images/solar_panel.jpg\",\r\n  \"date\": \"2024-10-27T12:45:00Z\",\r\n  \"imageCaption\": \"Paneles solares de última generación.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/saveNews",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"saveNews"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar Noticia",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Paneles solares de última generación\",\r\n  \"description\": \"Un nuevo descubrimiento promete revolucionar la producción de energía solar.\",\r\n  \"image\": \"https://example.com/images/solar_panel.jpg\",\r\n  \"date\": \"2024-10-27T12:45:00Z\",\r\n  \"imageCaption\": \"Paneles solares de última generación.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/updateNews/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"updateNews",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar Noticia",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/deleteNews/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"deleteNews",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Peticiones Proyectos",
+					"item": [
+						{
+							"name": "Obtener Proyectos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getAllProjects",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getAllProjects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Proyecto Por Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWxmaUBnbWFpbC5jb20iLCJhdXRoIjoiTUFOQUdFUiIsImV4cCI6MTc0MjU4MjQ5OSwiaWF0IjoxNzQyNTgwNjk5fQ.o2F77_DdkRowmENk_GX8wDS8hSxpQe7XMY1y_6UXnOUKWa8L1rABoFmrN3-4_50M2daSedaBpwxoZaSCm4nz1g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getProjectsById/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getProjectsById",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guardar Proyecto",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Proyectp de recoleccion\",\r\n  \"description\": \"Un proyecto innovador que busca crear viviendas ecológicas y accesibles para comunidades de bajos recursos.\",\r\n  \"image\": \"https://example.com/images/sustainable_housing.jpg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/saveProject",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"saveProject"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar Proyecto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Proyectp de recoleccion de juguetes\",\r\n  \"description\": \"Un proyecto innovador que busca crear viviendas ecológicas y accesibles para comunidades de bajos recursos.\",\r\n  \"image\": \"https://example.com/images/sustainable_housing.jpg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/updateProject/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"updateProject",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar Proyecto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/deleteProject/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"deleteProject",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Peticiones Voluntarios",
+					"item": [
+						{
+							"name": "Obtener Voluntarios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getVoluntaries",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getVoluntaries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Voluntario por Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getVoluntaryById/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getVoluntaryById",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Voluntario por Email",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/getVoluntaryByEmail/nuevo.voluntario@gmail.com",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"getVoluntaryByEmail",
+										"nuevo.voluntario@gmail.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guardar Voluntario",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Ana\",\r\n  \"lastName\": \"García Moreno De Cataluña\",\r\n  \"email\": \"ana.garcia.moreno@gmail.com\",\r\n  \"phone\": \"5646231981\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/saveVoluntary",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"saveVoluntary"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar Voluntario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Voluntario update\",\r\n  \"lastName\": \"update\",\r\n  \"email\": \"Voluntario.update@example.com\",\r\n  \"phone\": \"+15551234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/updateVoluntary/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"updateVoluntary",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar Voluntario",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/managers/deleteVoluntary/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"managers",
+										"deleteVoluntary",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Obtener Managers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/managers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"managers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Manager por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/managers/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"managers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Manager por Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/managers/findByEmail/admin@gmail.com",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"managers",
+								"findByEmail",
+								"admin@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guardar Manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"manager\",\r\n    \"lastName\": \"nuevo\",\r\n    \"email\": \"manager.nuevo@gmail.com\",\r\n    \"passwordCurrent\": \"managernuevo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Manager",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"manager update\",\r\n    \"lastName\": \"update\",\r\n    \"email\": \"manager.nuevo@gmail.com\",\r\n    \"passwordCurrent\": \"managerupdate\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/managers/updateManager/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"managers",
+								"updateManager",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/managers/deleteManager/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"managers",
+								"deleteManager",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"passwordCurrent\": \"administrador123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password Manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"managernuevo@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/forgotPassword",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/auth/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Microservicio Noticias",
+			"item": [
+				{
+					"name": "Obtener Noticias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/news",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Noticia por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/news/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"news",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Microservicio Proyectos",
+			"item": [
+				{
+					"name": "Obtener Proyectos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/projects",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Proyecto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/projects/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Microservicio Voluntarios",
+			"item": [
+				{
+					"name": "Guardar Voluntario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Nuevo\",\r\n  \"lastName\": \"Voluntario\",\r\n  \"email\": \"nuevo.voluntario@gmail.com\",\r\n  \"phone\": \"5646231981\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/voluntaries",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"voluntaries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
