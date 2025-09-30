@@ -1,19 +1,20 @@
 version: '3.8'
+
 services:
   config-service:
-    image: img-config-service
+    build: ./microservice-config-service
     ports:
       - "8081:8081"
 
   discovery-server:
-    image: img-discovery-server
+    build: ./microservice-discovery-server
     ports:
       - "8761:8761"
     depends_on:
-      - config-service # Asegura que config-service se inicie primero
+      - config-service
 
   api-gateway:
-    image: img-api-gateway
+    build: ./microservice-api-gateway
     ports:
       - "8080:8080"
     environment:
@@ -21,10 +22,10 @@ services:
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
     depends_on:
-      - discovery-server # Asegura que discovery-server se inicie después
+      - discovery-server
 
   microservice-manager:
-    image: img-manager
+    build: ./microservice-manager
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
@@ -33,7 +34,7 @@ services:
       - api-gateway
 
   microservice-voluntary:
-    image: img-voluntary
+    build: ./microservice-voluntary
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
@@ -42,7 +43,7 @@ services:
       - api-gateway
 
   microservice-project:
-    image: img-project
+    build: ./microservice-project
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
@@ -51,7 +52,7 @@ services:
       - api-gateway
 
   microservice-news:
-    image: img-news
+    build: ./microservice-news
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8081

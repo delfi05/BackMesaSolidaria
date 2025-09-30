@@ -1,8 +1,19 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
 spring:
+  mail:
+    host: smtp.gmail.com
+    # ... (resto de la configuración de mail)
   application:
-    name: microservice-project
+    name: microservice-manager
+
+---
+# INICIO DE LA CONFIGURACIÓN ESPECÍFICA PARA EL PERFIL 'docker'
+
+spring: # <-- Esta es la clave principal 'spring'
+  config:
+    activate:
+      on-profile: docker # <-- Activa el perfil
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://host.docker.internal:3306/microservice_project?createDatabaseIfNotExist=true
@@ -12,11 +23,12 @@ spring:
       ddl-auto: update
     show-sql: true
     database: mysql
-eureka:
+
+eureka: # <-- Esta es la clave principal 'eureka'
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://host.docker.internal:8761/eureka/
+      default-zone: jdbc:mysql://host.docker.internal:3306/microservice_project
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

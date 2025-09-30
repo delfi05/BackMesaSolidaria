@@ -13,10 +13,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.32/lombok-1.18.32.jar" />
         </processorPath>
-        <module name="microservice-config-service" />
+        <module name="manager" />
+        <module name="voluntary" />
         <module name="microservice-discovery-server" />
       </profile>
       <profile name="Annotation profile for microservice-voluntary" enabled="true">
@@ -26,13 +26,12 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
         </processorPath>
+        <module name="microservice-voluntary" />
         <module name="microservice-api-gateway" />
+        <module name="microservice-config-service" />
         <module name="microservice-project" />
-        <module name="manager" />
         <module name="microservice-manager" />
         <module name="microservice-news" />
-        <module name="voluntary" />
-        <module name="microservice-voluntary" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

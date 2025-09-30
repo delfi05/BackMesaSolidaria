@@ -3,22 +3,17 @@ server:
 spring:
   mail:
     host: smtp.gmail.com
-    #
-    #
-    # CAMBIAR ESTO PARA FEDERACION.MESASOLIDARIATANDIL@GMAIL.COM
-    # RECORDAR APAGAR EL FIREWALL Y EL ANTIVIRUS
-    #
-    username: lorenzofdzdev@gmail.com
-    password: ghwu tgjb wrra iybn
-    port: 587
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+    # ... (resto de la configuración de mail)
   application:
-    name: microservice-voluntary
+    name: microservice-manager
+
+---
+# INICIO DE LA CONFIGURACIÓN ESPECÍFICA PARA EL PERFIL 'docker'
+
+spring: # <-- Esta es la clave principal 'spring'
+  config:
+    activate:
+      on-profile: docker # <-- Activa el perfil
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://host.docker.internal:3306/microservice_voluntary?createDatabaseIfNotExist=true
@@ -28,11 +23,12 @@ spring:
       ddl-auto: update
     show-sql: true
     database: mysql
-eureka:
+
+eureka: # <-- Esta es la clave principal 'eureka'
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://host.docker.internal:8761/eureka/
+      default-zone: jdbc:mysql://host.docker.internal:3306/microservice_voluntary
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
