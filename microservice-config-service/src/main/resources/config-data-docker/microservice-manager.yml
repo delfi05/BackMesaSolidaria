@@ -29,6 +29,6 @@ eureka: # <-- Esta es la clave principal 'eureka'
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: jdbc:mysql://host.docker.internal:3306/microservice_manager
+      default-zone: http://discovery-server:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
