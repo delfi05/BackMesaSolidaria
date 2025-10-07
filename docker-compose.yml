@@ -1,10 +1,28 @@
 version: '3.8'
 
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: microservice_manager
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
   config-service:
     build: ./microservice-config-service
     ports:
       - "8081:8081"
+    healthcheck:
+      test: ["CMD-SHELL", "timeout 5 bash -c '</dev/tcp/localhost/8081' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
 
   discovery-server:
     build: ./microservice-discovery-server
@@ -19,7 +37,6 @@ services:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
     depends_on:
       - discovery-server
@@ -30,10 +47,14 @@ services:
       - "8082:8082"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
     depends_on:
-      - api-gateway
+      config-service:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+      mysql:
+        condition: service_started
 
   microservice-voluntary:
     build: ./microservice-voluntary
@@ -41,10 +62,14 @@ services:
       - "8085:8085"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
     depends_on:
-      - api-gateway
+      config-service:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+      mysql:
+        condition: service_started
 
   microservice-project:
     build: ./microservice-project
@@ -52,10 +77,14 @@ services:
       - "8084:8084"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
     depends_on:
-      - api-gateway
+      config-service:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+      mysql:
+        condition: service_started
 
   microservice-news:
     build: ./microservice-news
@@ -63,7 +92,14 @@ services:
       - "8083:8083"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_URI=http://config-service:8081
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
     depends_on:
-      - api-gateway
+      config-service:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+      mysql:
+        condition: service_started
+
+volumes:
+  mysql_data:

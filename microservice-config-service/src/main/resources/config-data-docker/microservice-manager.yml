@@ -16,8 +16,9 @@ spring: # <-- Esta es la clave principal 'spring'
       on-profile: docker # <-- Activa el perfil
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://host.docker.internal:3306/microservice_manager?createDatabaseIfNotExist=true
+    url: jdbc:mysql://mysql:3306/microservice_manager?createDatabaseIfNotExist=true
     username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
